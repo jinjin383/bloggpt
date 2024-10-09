@@ -23,7 +23,7 @@ def generate_post(topic):
 
     prompt_title = f"Придумайте привлекательный заголовок для поста на тему: {topic}"
     response_title = openai.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o",
         messages=[{"role": "user", "content": prompt_title}],
         max_tokens=50,
         n=1,
@@ -34,7 +34,7 @@ def generate_post(topic):
 
     prompt_meta = f"Напишите краткое, но информативное мета-описание для поста с заголовком: {title}"
     response_meta = openai.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o",
         messages=[{"role": "user", "content": prompt_meta}],
         max_tokens=100,
         n=1,
@@ -45,7 +45,7 @@ def generate_post(topic):
 
     prompt_post = f"Напишите подробный и увлекательный пост для блога на тему: {topic}, учитывая следующие последние новости:\n{recent_news}\n\nИспользуйте короткие абзацы, подзаголовки, примеры и ключевые слова для лучшего восприятия и SEO-оптимизации."
     response_post = openai.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o",
         messages=[{"role": "user", "content": prompt_post}],
         max_tokens=2048,
         n=1,
